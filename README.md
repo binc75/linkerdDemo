@@ -85,6 +85,9 @@ The Linkerd team provides a couple of application ready to deploy on the K8s clu
 We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
 
 This app come in a vanilla state (no Linkerd "agent" installed) and with a bug so that we can see how Linkerd helps in the debug.  
+The deployment also provides a "client" that hit the app and generate traffic.
+
+
 Let's proceed with the deployment:
 ``` bash
 kubectl create ns booksapp
@@ -121,6 +124,9 @@ Here something similar to tcpdump (https://linkerd.io/2/reference/cli/tap/index.
 ``` bash
 linkerd tap ns/booksapp
 ```
+
+A Grafana dashboard is provided by default in the deployment of the control plane. Here below an image.
+![Alt text](images/grafana_1.png?raw=true "Dashboard Failure")
 
 ## What happened 
 It's interesting to inspect one of the pods with the injected sidecar and see how it's configured.
