@@ -1,0 +1,14 @@
+# ignore all logs
+*.log
+
+# ignore all tmp directories
+**/tmp
+
+# ignore all swp files
+*.swp
+
+# ignore all __pycache__ directories
+**/__pycache__
+
+#python pre compiled
+*.pyc
