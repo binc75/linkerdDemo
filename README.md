@@ -80,4 +80,28 @@ linkerd dashboard &
 
 
 # Demo
+## Deploy the demo app "Books"
+The Linkerd team provides a couple of application ready to deploy on the K8s cluster in order to test the service mesh.  
+We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
 
+This app come in a vanilla state (no Linkerd "agent" installed) and with a bug so that we can see how Linkerd helps in the debug.  
+Let's proceed with the deployment:
+``` bash
+kubectl create ns booksapp
+curl -sL https://run.linkerd.io/booksapp.yml | kubectl -n booksapp apply -f -
+```
+Wait for the deployment to complete, check with:
+``` bash
+kubectl get all -n booksapp
+kubectl -n booksapp rollout status deploy webapp
+```
+## Apply the service mesh to the app
+The following command will get the yaml file of the running deployment, pass it to *linkerd inject* that will inject the linkerd-proxy into the pods and then pass back the new yaml to kubectl.
+``` bash
+kubectl get -n booksapp deploy -o yaml | linkerd inject - | kubectl apply -f -
+```
+At this point kubernetes will restart the needed pods in order to get them running with the modified configuration (sidecar container).
+## Verify the situation
+In the dashboard is now possible to drill down to the specific microservice that is giving problems, in this case *deploy/books*
+![Alt text](images/linkerd_dashboard_2.png?raw=true "Dashboard Failure")
+![Alt text](images/linkerd_dashboard_3.png?raw=true "Dashboard Failure")
