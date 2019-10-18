@@ -103,5 +103,21 @@ kubectl get -n booksapp deploy -o yaml | linkerd inject - | kubectl apply -f -
 At this point kubernetes will restart the needed pods in order to get them running with the modified configuration (sidecar container).
 ## Verify the situation
 In the dashboard is now possible to drill down to the specific microservice that is giving problems, in this case *deploy/books*
+
 ![Alt text](images/linkerd_dashboard_2.png?raw=true "Dashboard Failure")
+
+
 ![Alt text](images/linkerd_dashboard_3.png?raw=true "Dashboard Failure")
+
+
+![Alt text](images/linkerd_dashboard_4.png?raw=true "Dashboard Failure")
+
+
+We can also use CLI to inspect the status (https://linkerd.io/2/reference/cli/stat/):
+``` bash
+linkerd stat deployments -n booksapp
+```
+Here something similar to tcpdump (https://linkerd.io/2/reference/cli/tap/index.html):
+``` bash
+linkerd tap ns/booksapp
+```
