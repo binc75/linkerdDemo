@@ -79,7 +79,7 @@ linkerd dashboard &
 ![Alt text](images/linkerd_dashboard_1.png?raw=true "Dashboard")
 
 
-# Demo
+# Demo 
 ## Deploy the demo app "Books"
 The Linkerd team provides a couple of application ready to deploy on the K8s cluster in order to test the service mesh.  
 We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
@@ -120,4 +120,29 @@ linkerd stat deployments -n booksapp
 Here something similar to tcpdump (https://linkerd.io/2/reference/cli/tap/index.html):
 ``` bash
 linkerd tap ns/booksapp
+```
+
+## What happened 
+It's interesting to inspect one of the pods with the injected sidecar and see how it's configured.
+``` bash
+kubectl -n booksapp describe pod books
+  ...
+  linkerd-proxy:
+    Container ID:   docker://fb430c724aa13b5c1e8ad0af2bbc034cf7c2d8c8bdb8e0c1a63e734eda1e18d1
+    Image:          gcr.io/linkerd-io/proxy:stable-2.6.0
+    Image ID:       docker-pullable://gcr.io/linkerd-io/proxy@sha256:633b8b3434f4229b219274c7d452335e3f93300a30d01d465dd80102a7df3a50
+    Ports:          4143/TCP, 4191/TCP
+    Host Ports:     0/TCP, 0/TCP
+    State:          Running
+      Started:      Fri, 18 Oct 2019 22:02:45 +0200
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:4191/metrics delay=10s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:4191/ready delay=2s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      LINKERD2_PROXY_LOG:                           warn,linkerd2_proxy=info
+      LINKERD2_PROXY_DESTINATION_SVC_ADDR:          linkerd-dst.linkerd.svc.cluster.local:8086
+      LINKERD2_PROXY_CONTROL_LISTEN_ADDR:           0.0.0.0:4190
+      LINKERD2_PROXY_ADMIN_LISTEN_ADDR:             0.0.0.0:4191
+   ...
 ```
