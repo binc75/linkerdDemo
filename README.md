@@ -1,4 +1,4 @@
-# Linkerd 2 -- Service Mesh Demo
+# Linkerd  -- Service Mesh Demo
 ## Introduction
 I've been asked to come up with a demo of a K8s cluster with a service mesh installed.  
 I decided to proceed with the use of Linkerd (https://linkerd.io/) because of different reasons:
@@ -130,7 +130,7 @@ linkerd tap ns/booksapp
 A Grafana dashboard is provided by default in the deployment of the control plane. Here below an image.
 ![Alt text](images/grafana_1.png?raw=true "Dashboard Failure")
 
-## What happened 
+## Notes
 It's interesting to inspect one of the pods with the injected sidecar and see how it's configured.
 ``` bash
 kubectl -n booksapp describe pod books
