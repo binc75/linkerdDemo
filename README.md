@@ -81,6 +81,8 @@ linkerd dashboard &
 
 # Demo 
 ## Deploy the demo app "Books"
+***The scope of this demo is to demonstrate the observability capabilities of Linkerd.***  
+
 The Linkerd team provides a couple of application ready to deploy on the K8s cluster in order to test the service mesh.  
 We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
 
