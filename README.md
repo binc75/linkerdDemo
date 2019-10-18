@@ -76,6 +76,7 @@ This command will launch a browser:
 ``` bash
 linkerd dashboard &
 ```
+![Alt text](images/linkerd_dashboard_1.png?raw=true "Dashboard")
 
 
 # Demo
