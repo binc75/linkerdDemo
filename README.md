@@ -11,11 +11,11 @@ Other tools were available, one over all Istio (https://istio.io/), but because 
 
 ## Description
 From the official documentation:  
-*Linkerd works by installing a set of ultralight, transparent proxies next to each service instance.  
-These proxies automatically handle all traffic to and from the service.  
-Because they’re transparent, these proxies act as highly instrumented out-of-process network stacks, sending telemetry to, and receiving control signals from, the control plane.  
-This design allows Linkerd to measure and manipulate traffic to and from your service without introducing excessive latency.
-In order to be as small, lightweight, and safe as possible, Linkerd’s proxies are written in Rust and specialized for Linkerd.*
+> *Linkerd works by installing a set of ultralight, transparent proxies next to each service instance.  
+> These proxies automatically handle all traffic to and from the service.  
+> Because they’re transparent, these proxies act as highly instrumented out-of-process network stacks, sending telemetry to, and receiving control signals from, the control plane.  
+> This design allows Linkerd to measure and manipulate traffic to and from your service without introducing excessive latency.
+> In order to be as small, lightweight, and safe as possible, Linkerd’s proxies are written in Rust and specialized for Linkerd.*
 
 Architecture official documentation:  
 https://linkerd.io/2/reference/architecture/
@@ -184,4 +184,3 @@ Linkerd offers out of the box many interesting features like automatic TLS, Auto
 Beside this it also enable canaty & blue/green deploys via the **Traffic Split** feature, beacuse of time constraint (time boxing of 1 day) I was unable to explore this part and propose a demo.
 
 
-https://linkerd.io/2/tasks/canary-release/
