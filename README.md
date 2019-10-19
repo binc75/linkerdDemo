@@ -21,7 +21,8 @@ Architecture official documentation:
 https://linkerd.io/2/reference/architecture/
 
 **At a glance:**    
-***Linkerd inject into the pods a ultralight proxy (sidecar) that, via iptables, redirect all the traffic of the pod through itself.***
+***Linkerd inject into the pods a ultralight proxy (sidecar) that, via iptables, redirect all the traffic of the pod through itself.  
+All this process is completely transparent for the application and out of the box the solution give a pretty good set of tooling for monitoring and debugging.***
 
 # Installation
 ## Kubernetes environment
@@ -79,9 +80,9 @@ linkerd dashboard &
 ![Alt text](images/linkerd_dashboard_1.png?raw=true "Dashboard")
 
 
-# Demo 
+# Demo 1
 ## Deploy the demo app "Books"
-***The scope of this demo is to demonstrate the observability capabilities of Linkerd.***  
+***The scope of this demo is to demonstrate the observability and monitoring capabilities of Linkerd.***  
 
 The Linkerd team provides a couple of application ready to deploy on the K8s cluster in order to test the service mesh.  
 We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
@@ -154,3 +155,13 @@ kubectl -n booksapp describe pod books
       LINKERD2_PROXY_ADMIN_LISTEN_ADDR:             0.0.0.0:4191
    ...
 ```
+# Demo 2
+***The scope of this demo is to demonstrate the ability of Linkerd to completely automate the injection of the sidecare proxy for defined namespaces***  
+
+## Namespace creation
+We are going to create a new namespace with the necessary configurations so that all the pods that will be run on it will automatically be injected with the linkerd proxy.  
+``` bash
+```
+
+
+https://linkerd.io/2/tasks/canary-release/
