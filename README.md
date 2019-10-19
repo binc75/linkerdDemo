@@ -168,13 +168,13 @@ kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/aut
 ```
 
 ## Pods creation
-In order to verify that the pods on the namespace are actually injected with the linkerd proxy let's try to launch a simple pod and the check if everything looks right.  
+In order to verify that the pods on the namespace are actually injected with the linkerd proxy let's try to launch a simple deployment and then check if everything looks right.  
 ``` bash
-kubectl run nginx --image=nginx -n autoinject
+kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/nginx-deployment.yaml -n autoinject
 ```
-Now inspect the pod
+Now inspect the pods, you should the the injected container
 ``` bash
-kubectl describe pod nginx -n autoinject
+kubectl describe pods -n autoinject
 ```
 We can also see what the Web UI says.
 ![Alt text](images/autoinject-ns.png?raw=true "Auto Inject NS")

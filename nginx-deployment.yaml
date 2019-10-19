@@ -30,3 +30,17 @@ spec:
     protocol: TCP
   selector:
     run: my-nginx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: traffic-generator
+  labels:
+    purpose: traffic-generator
+spec:
+  containers:
+  - name: ubuntu-container
+    image: ubuntu
+    command: ["/bin/bash"]
+    args: ["-c", "apt update && apt install wget -y && while true; do wget -q my-nginx; sleep 0.1;done"]
+  restartPolicy: OnFailure
