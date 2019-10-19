@@ -175,8 +175,11 @@ kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/ngi
 ```
 Now inspect the pods, you should see the injected container
 ``` bash
-kubectl describe pods -n autoinject
+kubectl get pods -n autoinject -o=jsonpath='{.items[0].spec.containers[*].name}'
 ```
+Output should be like:
+>  my-nginx ***linkerd-proxy***
+
 We can also see what the Web UI says.
 ![Alt text](images/autoinject-ns.png?raw=true "Auto Inject NS")
 
