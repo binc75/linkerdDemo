@@ -38,8 +38,7 @@ minikube start
 The installation process it's pretty smooth and well documented. 
 
 ### Requirements
-Kubernets cluster 1.12 or later and *kubectl* configured correctly.
-Check it:
+Kubernets cluster 1.12 or later and *kubectl* configured correctly, check it out:
 ``` bash
 kubectl version --short
 ```
@@ -87,8 +86,8 @@ linkerd dashboard &
 The Linkerd team provides a couple of application ready to deploy on the K8s cluster in order to test the service mesh.  
 We are going to use the **Books** app: https://run.linkerd.io/booksapp.yml  
 
-This app come in a vanilla state (no Linkerd "agent" installed) and with a bug so that we can see how Linkerd helps in the debug.  
-The deployment also provides a "client" that hit the app and generate traffic.
+This app come in a vanilla state (no Linkerd "agent" installed) and with a bug so that we can see how Linkerd helps in the debug.
+The deployment also provides a "client" that generate traffic towards the web app.
 
 
 Let's proceed with the deployment:
@@ -161,7 +160,9 @@ kubectl -n booksapp describe pod books
 
 ## Namespace creation
 We are going to create a new namespace with the necessary configurations so that all the pods that will be run on it will automatically be injected with the linkerd proxy.  
-Inspecting the yaml file you will notice the important part regarding the annotation.  
+Inspecting the yaml file you will notice the important part regarding the annotation to enable the injection:
+>  annotations: {"linkerd.io/inject":"enabled"}
+
 Create the ns in k8s:
 ``` bash
 kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/autoinject-ns.yaml
