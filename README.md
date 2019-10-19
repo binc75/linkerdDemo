@@ -182,6 +182,6 @@ We can also see what the Web UI says.
 
 # Conclusions
 Linkerd offers out of the box many interesting features like automatic TLS, Automatic Proxy Injection, Dashboard and Grafana, Telemetry and Monitoring.  
-Beside this it also enable canaty & blue/green deploys via the **Traffic Split** feature, beacuse of time constraint (time boxing of 1 day) I was unable to explore this part and propose a demo.
+Beside this it also enable canary & blue/green deploys via the **Traffic Split** feature, beacuse of time constraint (time boxing of 1 day) I was unable to explore this part and propose a demo.
 
 
