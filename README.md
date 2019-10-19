@@ -160,8 +160,22 @@ kubectl -n booksapp describe pod books
 
 ## Namespace creation
 We are going to create a new namespace with the necessary configurations so that all the pods that will be run on it will automatically be injected with the linkerd proxy.  
+Inspecting the yaml file you will notice the important part regarding the annotation.  
+Create the ns in k8s:
 ``` bash
+kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/autoinject-ns.yaml
 ```
 
+## Pod creation
+In order to verify that the pods on the namespace are actually injected with the linkerd proxy let's try to launch a simple pod and the check if everything looks right.  
+``` bash
+kubectl run nginx --image=nginx -n autoinject
+```
+Now inspect the pod
+``` bash
+kubectl describe pod nginx -n autoinject
+```
+We can also see what the Web UI says.
+![Alt text](images/autoinject-ns.png?raw=true "Auto Inject NS")
 
 https://linkerd.io/2/tasks/canary-release/
