@@ -155,6 +155,7 @@ kubectl -n booksapp describe pod books
       LINKERD2_PROXY_ADMIN_LISTEN_ADDR:             0.0.0.0:4191
    ...
 ```
+
 # Demo 2
 ***The scope of this demo is to demonstrate the ability of Linkerd to completely automate the injection of the sidecare proxy for defined namespaces***  
 
@@ -166,7 +167,7 @@ Create the ns in k8s:
 kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/autoinject-ns.yaml
 ```
 
-## Pod creation
+## Pods creation
 In order to verify that the pods on the namespace are actually injected with the linkerd proxy let's try to launch a simple pod and the check if everything looks right.  
 ``` bash
 kubectl run nginx --image=nginx -n autoinject
@@ -177,5 +178,8 @@ kubectl describe pod nginx -n autoinject
 ```
 We can also see what the Web UI says.
 ![Alt text](images/autoinject-ns.png?raw=true "Auto Inject NS")
+
+
+
 
 https://linkerd.io/2/tasks/canary-release/
