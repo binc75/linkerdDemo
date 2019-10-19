@@ -189,10 +189,12 @@ With the Linkerd's CLI we can see the traffic on the namespace:
 linkerd stat pods -n autoinject
 ```
 Output:
-> NAME                         STATUS   MESHED   SUCCESS      RPS   LATENCY_P50   LATENCY_P95   LATENCY_P99   TCP_CONN
-> my-nginx-75897978cd-n7shs   Running      1/1   100.00%   2.7rps           1ms           1ms           2ms          2
-> my-nginx-75897978cd-rltk7   Running      1/1   100.00%   2.8rps           1ms           1ms           1ms          2
-> traffic-generator           Running      1/1         -        -             -             -             -          -
+```
+NAME                         STATUS   MESHED   SUCCESS      RPS   LATENCY_P50   LATENCY_P95   LATENCY_P99   TCP_CONN
+my-nginx-75897978cd-n7shs   Running      1/1   100.00%   2.7rps           1ms           1ms           2ms          2
+my-nginx-75897978cd-rltk7   Running      1/1   100.00%   2.8rps           1ms           1ms           1ms          2
+traffic-generator           Running      1/1         -        -             -             -             -          -
+```
 
 
 We can also see what the Web UI says.
