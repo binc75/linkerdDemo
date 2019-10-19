@@ -157,7 +157,7 @@ kubectl -n booksapp describe pod books
 ```
 
 # Demo 2
-***The scope of this demo is to demonstrate the ability of Linkerd to completely automate the injection of the sidecare proxy for defined namespaces***  
+***The scope of this demo is to demonstrate the ability of Linkerd to completely automate the injection of the sidecar proxy for defined namespaces***  
 
 ## Namespace creation
 We are going to create a new namespace with the necessary configurations so that all the pods that will be run on it will automatically be injected with the linkerd proxy.  
@@ -172,13 +172,14 @@ In order to verify that the pods on the namespace are actually injected with the
 ``` bash
 kubectl apply -f https://raw.githubusercontent.com/binc75/linkerdDemo/master/nginx-deployment.yaml -n autoinject
 ```
-Now inspect the pods, you should the the injected container
+Now inspect the pods, you should see the injected container
 ``` bash
 kubectl describe pods -n autoinject
 ```
 We can also see what the Web UI says.
 ![Alt text](images/autoinject-ns.png?raw=true "Auto Inject NS")
 
+# Conclusions
 
 
 
