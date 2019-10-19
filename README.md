@@ -135,6 +135,8 @@ It's interesting to inspect one of the pods with the injected sidecar and see ho
 ``` bash
 kubectl -n booksapp describe pod books
 ```
+Output:
+``` 
    ...  
    linkerd-proxy:  
      Container ID:   docker://fb430c724aa13b5c1e8ad0af2bbc034cf7c2d8c8bdb8e0c1a63e734eda1e18d1  
@@ -154,6 +156,7 @@ kubectl -n booksapp describe pod books
        LINKERD2_PROXY_CONTROL_LISTEN_ADDR:           0.0.0.0:4190  
        LINKERD2_PROXY_ADMIN_LISTEN_ADDR:             0.0.0.0:4191  
     ...  
+```
 
 # Demo 2
 ***The scope of this demo is to demonstrate the ability of Linkerd to completely automate the injection of the sidecar proxy for defined namespaces***  
