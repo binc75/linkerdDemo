@@ -20,8 +20,8 @@ From the official documentation:
 Architecture official documentation:  
 https://linkerd.io/2/reference/architecture/
 
-**At a glance:**    
-***Linkerd inject into the pods a ultralight proxy (sidecar) that, via iptables, redirect all the traffic of the pod through itself.  
+At a glance:    
+***Linkerd inject into the pods a ultralight proxy (sidecar) that, via iptables, redirect all the traffic of the pod through itself.
 All this process is completely transparent for the application and out of the box the solution give a pretty good set of tooling for monitoring and debugging.***
 
 # Installation
